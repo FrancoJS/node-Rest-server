@@ -17,12 +17,12 @@ let verificaToken = (req, res, next) => {
     next();
   });
 };
+
 const verificarAdminRole = (req, res, next) => {
   let usuario = req.usuario;
 
-  if (usuario.role === "ADMIN_ROLE") {
-    next();
-  } else {
+  if (usuario.role === "ADMIN_ROLE") next();
+  else {
     res.json({
       ok: false,
       err: {

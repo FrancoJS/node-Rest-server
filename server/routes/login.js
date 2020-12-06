@@ -35,15 +35,9 @@ app.post("/login", (req, res) => {
       });
     }
 
-    let token = jwt.sign(
-      {
-        usuario: usuarioDB,
-      },
-      process.env.SEED,
-      {
-        expiresIn: process.env.CADUCIDAD_TOKEN,
-      }
-    );
+    let token = jwt.sign({ usuario: usuarioDB }, process.env.SEED, {
+      expiresIn: process.env.CADUCIDAD_TOKEN,
+    });
 
     res.json({
       ok: true,
@@ -98,13 +92,7 @@ app.post("/google", async (req, res) => {
           },
         });
       } else {
-        let token = jwt.sign(
-          {
-            usuario: usuarioDB,
-          },
-          process.env.SEED,
-          { expiresIn: process.env.CADUCIDAD_TOKEN }
-        );
+        let token = jwt.sign({ usuario: usuarioDB }, process.env.SEED, { expiresIn: process.env.CADUCIDAD_TOKEN });
         return res.json({
           ok: true,
           usuario: usuarioDB,
@@ -128,13 +116,7 @@ app.post("/google", async (req, res) => {
             err,
           });
         }
-        let token = jwt.sign(
-          {
-            usuario: usuarioDB,
-          },
-          process.env.SEED,
-          { expiresIn: process.env.CADUCIDAD_TOKEN }
-        );
+        let token = jwt.sign({ usuario: usuarioDB }, process.env.SEED, { expiresIn: process.env.CADUCIDAD_TOKEN });
         return res.json({
           ok: true,
           usuario: usuarioDB,

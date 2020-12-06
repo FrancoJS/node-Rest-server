@@ -8,7 +8,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || "dev";
 let urlDB;
 
 //Vencimiento del token
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 20;
+process.env.CADUCIDAD_TOKEN = "48h";
 
 //SEED de autenticacion
 process.env.SEED = process.env.SEED || "este-es-el-seed-desarrollo";
@@ -19,6 +19,4 @@ else urlDB = process.env.MONGO_URI;
 process.env.URLDB = urlDB;
 
 //Google client ID
-process.env.CLIENT_ID =
-  process.env.CLIENT_ID ||
-  "547498850869-uhnnv0d83b4r5au48j8gjfu7k31jhbbb.apps.googleusercontent.com";
+process.env.CLIENT_ID = process.env.CLIENT_ID || "547498850869-uhnnv0d83b4r5au48j8gjfu7k31jhbbb.apps.googleusercontent.com";
